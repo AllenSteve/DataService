@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthquakeParser", "EarthquakeParser\EarthquakeParser.csproj", "{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{2F9EB9E7-0498-4F13-9049-505088CAA453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
