@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthquakeParser", "Earthqu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{2F9EB9E7-0498-4F13-9049-505088CAA453}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProvider", "DataProvider\DataProvider.csproj", "{76500AA3-2640-4F87-BAEC-AFE799B6208A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76500AA3-2640-4F87-BAEC-AFE799B6208A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76500AA3-2640-4F87-BAEC-AFE799B6208A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76500AA3-2640-4F87-BAEC-AFE799B6208A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76500AA3-2640-4F87-BAEC-AFE799B6208A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
