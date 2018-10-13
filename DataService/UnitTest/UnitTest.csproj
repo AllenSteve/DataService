@@ -70,6 +70,24 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{4c0498c2-966e-45ec-9643-0ed94ed348b7}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataProvider\DataProvider.csproj">
+      <Project>{76500aa3-2640-4f87-baec-afe799b6208a}</Project>
+      <Name>DataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataService\DataService.csproj">
+      <Project>{5ab35f62-99ed-4168-b9d4-b6ad9347ba2f}</Project>
+      <Name>DataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{3f7655dc-e30f-4bda-8e33-0f5aff5b3cec}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
