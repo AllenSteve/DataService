@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure;
 
 namespace DataService
 {
-    public class EarthquakeDataService
+    public class EarthquakeDataService : IDataService
     {
         public string baseUrl { get; set; }
 
-        public EarthquakeDao dao { get; set; }
+        public IDao dao { get; set; }
 
         public EarthquakeDataService()
         {
@@ -41,7 +42,7 @@ namespace DataService
             }
         }
 
-        public List<Earthquake> ParseList(HtmlNodeCollection nodes)
+        public IEnumerable<IDomainModel> ParseNodes(HtmlNodeCollection nodes)
         {
             List<Earthquake> lst = new List<Earthquake>();
             if (nodes != null && nodes.Any())
@@ -69,7 +70,7 @@ namespace DataService
 
         public void Save(HtmlNodeCollection nodes)
         {
-            var lst = this.ParseList(nodes).OrderBy(o => o.CreateTime);
+            var lst = this.ParseNodes(nodes).Select(o => o as Earthquake).OrderBy(o => o.CreateTime);
             foreach (var item in lst)
             {
                 if (!this.dao.Contains(item))

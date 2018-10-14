@@ -7,26 +7,30 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DataModel.ServiceModel;
+using Infrastructure;
 
 namespace DataProvider
 {
-    public class EarthquakeDao : Dao
+    public class EarthquakeDao : Dao, IDao
     {
-        protected IDbConnection Connection { get; set; }
-
-        public EarthquakeDao()
+        public EarthquakeDao() : base()
         {
-            this.Connection = new SqlConnection(this.ConnStr);
         }
 
-        public int Add(Earthquake entity)
+        public override int Add(IDomainModel source)
         {
-            return this.Connection.Execute("Insert into Earthquake values (@Scale, @Latitude, @Logitude, @Depth, @CreateTime, @Position)",
-            new { Scale = entity.Scale, Latitude = entity.Latitude, Logitude = entity.Logitude, Depth = entity.Depth, CreateTime = entity.CreateTime, Position = entity.Position });
+            var entity = source as Earthquake;
+            if (entity != null)
+            {
+                return this.Connection.Execute("Insert into Earthquake values (@Scale, @Latitude, @Logitude, @Depth, @CreateTime, @Position)",
+                new { Scale = entity.Scale, Latitude = entity.Latitude, Logitude = entity.Logitude, Depth = entity.Depth, CreateTime = entity.CreateTime, Position = entity.Position });
+            }
+            return -1;
         }
 
-        public bool Contains(Earthquake entity)
+        public override bool Contains(IDomainModel source)
         {
+            var entity = source as Earthquake;
             if (entity != null)
             {
                 var ret = this.Connection.Query<Earthquake>("select * from Earthquake where CreateTime=@CreateTime", new { CreateTime = entity.CreateTime });

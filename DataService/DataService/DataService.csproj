@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EarthquakeDataService.cs" />
-    <Compile Include="FarmersMarketDataService.cs" />
+    <Compile Include="AgriculturalProductsDataService.cs" />
     <Compile Include="IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

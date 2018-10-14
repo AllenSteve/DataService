@@ -14,7 +14,7 @@ namespace UnitTest
         {
             service = new EarthquakeDataService();
             var nodes = service.GetNodes();
-            service.ParseList(nodes);
+            service.ParseNodes(nodes);
         }
 
         [TestMethod]

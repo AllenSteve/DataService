@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastructure;
+using System.Data.SqlClient;
 
 namespace DataProvider
 {
     public abstract class Dao : IDao
     {
         private string connStr { get; set; }
+
+        protected IDbConnection Connection { get; set; }
 
         public string ConnStr
         {
@@ -25,12 +28,17 @@ namespace DataProvider
             }
         }
 
-        public int Add(IDomainModel entity)
+        public Dao()
+        {
+            this.Connection = new SqlConnection(this.ConnStr);
+        }
+
+        public virtual int Add(IDomainModel entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Contains(IDomainModel entity)
+        public virtual bool Contains(IDomainModel entity)
         {
             throw new NotImplementedException();
         }
