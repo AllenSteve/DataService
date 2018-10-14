@@ -5,14 +5,14 @@ using DataService;
 namespace UnitTest
 {
     [TestClass]
-    public class EarthquakeServiceTest
+    public class EarthquakeDataServiceTest
     {
         public EarthquakeDataService service { get; set; }
 
         [TestMethod]
         public void GetNodesTest()
         {
-            service = new EarthquakeDataService();
+            service = new DataService.EarthquakeDataService();
             var nodes = service.GetNodes();
             service.ParseNodes(nodes);
         }
@@ -20,7 +20,7 @@ namespace UnitTest
         [TestMethod]
         public void SaveNodesTest()
         {
-            service = new EarthquakeDataService();
+            service = new DataService.EarthquakeDataService();
             var nodes = service.GetNodes();
             service.Save(nodes);
         }
