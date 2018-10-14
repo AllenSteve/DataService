@@ -9,6 +9,11 @@ namespace DataModel.ServiceModel
     public class Earthquake
     {
         /// <summary>
+        /// 唯一性标识
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// 地震等级
         /// </summary>
         public string Scale { get; set; }
