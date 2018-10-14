@@ -66,10 +66,10 @@ namespace DataService
 
         public void Run()
         {
-            for (int index = 0; index < 1000; ++index)
+            for (int index = 0; index < 13455; ++index)
             {
                 string url = string.Concat(this.baseUrl, ++index, ".shtml");
-                this.Save(this.GetNodes());
+                this.Save(this.GetNodes(url));
             }
         }
 
@@ -78,10 +78,7 @@ namespace DataService
             var lst = this.ParseNodes(nodes).Select(o => o as AgriculturalProducts);
             foreach (var item in lst)
             {
-                if (!this.dao.Contains(item))
-                {
-                    this.dao.Add(item);
-                }
+                this.dao.Add(item);
             }
         }
     }

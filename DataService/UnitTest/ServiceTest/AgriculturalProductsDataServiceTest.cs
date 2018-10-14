@@ -19,6 +19,14 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void SaveNodeTest()
+        {
+            service = new DataService.AgriculturalProductsDataService();
+            var nodes = service.GetNodes("http://www.xinfadi.com.cn/marketanalysis/0/list/13455.shtml");
+            service.Save(nodes);
+        }
+
+        [TestMethod]
         public void SaveNodesTest()
         {
             service = new DataService.AgriculturalProductsDataService();

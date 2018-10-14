@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{4C0498C2-966E-45EC-9643-0ED94ED348B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriculturalProductsParser", "AgriculturalProductsParser\AgriculturalProductsParser.csproj", "{EE2A0230-2B85-4BB1-8883-22A15D81DADC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
