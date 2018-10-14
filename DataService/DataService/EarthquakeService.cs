@@ -1,4 +1,5 @@
 ﻿using DataModel.ServiceModel;
+using DataProvider;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,12 @@ namespace DataService
     {
         public string Url { get; set; }
 
+        public EarthquakeDao dao { get; set; }
+
         public EarthquakeService()
         {
             Url = "http://news.ceic.ac.cn/index.html";
+            this.dao = new EarthquakeDao();
         }
 
         public HtmlNodeCollection GetNodes(string source = null)
@@ -61,6 +65,18 @@ namespace DataService
                 }
             }
             return lst;
+        }
+
+        public void Save(HtmlNodeCollection nodes)
+        {
+            var lst = this.ParseList(nodes).OrderBy(o => o.CreateTime);
+            foreach (var item in lst)
+            {
+                if (!this.dao.Contains(item))
+                {
+                    this.dao.Add(item);
+                }
+            }
         }
 
         private int GetStartIndex(string[] arr)

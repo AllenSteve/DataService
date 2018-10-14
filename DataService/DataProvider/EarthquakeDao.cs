@@ -27,8 +27,12 @@ namespace DataProvider
 
         public bool Contains(Earthquake entity)
         {
-            var ret = this.Connection.Query<Earthquake>("select * from Earthquake where CreateTime=@CreateTime", new { CreateTime = entity.CreateTime });
-            return ret != null && ret.Any();
+            if (entity != null)
+            {
+                var ret = this.Connection.Query<Earthquake>("select * from Earthquake where CreateTime=@CreateTime", new { CreateTime = entity.CreateTime });
+                return ret != null && ret.Any();
+            }
+            return false;
         }
     }
 }
