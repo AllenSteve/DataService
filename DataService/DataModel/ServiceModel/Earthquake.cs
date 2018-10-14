@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace DataModel.ServiceModel
 {
-    public class Earthquake
+    public class Earthquake : IDomainModel
     {
         /// <summary>
         /// 唯一性标识
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// 地震等级
         /// </summary>
         public string Scale { get; set; }
-        
+
         /// <summary>
         /// 地震发生时间
         /// </summary>

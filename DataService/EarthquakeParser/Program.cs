@@ -11,9 +11,7 @@ namespace EarthquakeParser
     {
         static void Main(string[] args)
         {
-            var service = new EarthquakeService();
-            var nodes = service.GetNodes();
-            service.Save(nodes);
+            new EarthquakeDataService().Run();
         }
     }
 }

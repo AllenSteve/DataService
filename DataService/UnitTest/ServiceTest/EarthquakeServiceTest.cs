@@ -7,12 +7,12 @@ namespace UnitTest
     [TestClass]
     public class EarthquakeServiceTest
     {
-        public EarthquakeService service { get; set; }
+        public EarthquakeDataService service { get; set; }
 
         [TestMethod]
         public void GetNodesTest()
         {
-            service = new EarthquakeService();
+            service = new EarthquakeDataService();
             var nodes = service.GetNodes();
             service.ParseList(nodes);
         }
@@ -20,7 +20,7 @@ namespace UnitTest
         [TestMethod]
         public void SaveNodesTest()
         {
-            service = new EarthquakeService();
+            service = new EarthquakeDataService();
             var nodes = service.GetNodes();
             service.Save(nodes);
         }

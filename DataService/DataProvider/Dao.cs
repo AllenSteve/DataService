@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure;
 
 namespace DataProvider
 {
@@ -22,6 +23,16 @@ namespace DataProvider
                 }
                 return connStr;
             }
+        }
+
+        public int Add(IDomainModel entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(IDomainModel entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace DataService
 {
-    public class EarthquakeService
+    public class EarthquakeDataService
     {
-        public string Url { get; set; }
+        public string baseUrl { get; set; }
 
         public EarthquakeDao dao { get; set; }
 
-        public EarthquakeService()
+        public EarthquakeDataService()
         {
-            Url = "http://news.ceic.ac.cn/index.html";
+            baseUrl = "http://news.ceic.ac.cn/index.html";
             this.dao = new EarthquakeDao();
         }
 
         public HtmlNodeCollection GetNodes(string source = null)
         {
-            string url = string.IsNullOrWhiteSpace(source) ? Url : source;
+            string url = string.IsNullOrWhiteSpace(source) ? baseUrl : source;
             try
             {
                 if (!string.IsNullOrWhiteSpace(url))
@@ -77,6 +77,11 @@ namespace DataService
                     this.dao.Add(item);
                 }
             }
+        }
+
+        public void Run()
+        {
+            this.Save(this.GetNodes());
         }
 
         private int GetStartIndex(string[] arr)

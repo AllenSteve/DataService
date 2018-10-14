@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EarthquakeService.cs" />
+    <Compile Include="EarthquakeDataService.cs" />
+    <Compile Include="FarmersMarketDataService.cs" />
+    <Compile Include="IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

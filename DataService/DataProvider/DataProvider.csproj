@@ -59,6 +59,10 @@
       <Project>{4c0498c2-966e-45ec-9643-0ed94ed348b7}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

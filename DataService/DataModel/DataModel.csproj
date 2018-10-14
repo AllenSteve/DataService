@@ -44,7 +44,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceModel\Earthquake.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{3F7655DC-E30F-4BDA-8E33-0F5AFF5B3CEC}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
