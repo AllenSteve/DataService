@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,9 @@ namespace EarthquakeParser
     {
         static void Main(string[] args)
         {
+            var service = new EarthquakeService();
+            var nodes = service.GetNodes();
+            service.Save(nodes);
         }
     }
 }
