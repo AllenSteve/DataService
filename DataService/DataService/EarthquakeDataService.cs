@@ -85,6 +85,16 @@ namespace DataService
             this.Save(this.GetNodes());
         }
 
+        public string Request()
+        {
+            string headStr = "shuju\":";
+            string tailStr = ",\"jieguo";
+            string url = "http://www.ceic.ac.cn/ajax/speedsearch?num=6&&page=1";
+            string content = WebUtil.Get(url, Encoding.UTF8);
+            content = content.Substring(content.IndexOf(headStr)+ headStr.Length, content.IndexOf(tailStr)- tailStr.Length-2);
+            return content;
+        }
+
         private int GetStartIndex(string[] arr)
         {
             int startIndex = 0;
