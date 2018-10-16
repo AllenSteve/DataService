@@ -53,6 +53,7 @@
     <Compile Include="AgriculturalProductsDataService.cs" />
     <Compile Include="IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

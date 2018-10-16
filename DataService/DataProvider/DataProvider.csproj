@@ -51,6 +51,7 @@
     <Compile Include="EarthquakeDao.cs" />
     <Compile Include="IDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

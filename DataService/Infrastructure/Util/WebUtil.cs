@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Infrastructure
 {
@@ -42,7 +43,6 @@ namespace Infrastructure
 
         public static string Get(string url, Encoding encode)
         {
-            string strMsg = string.Empty;
             try
             {
                 WebRequest request = WebRequest.Create(url);
@@ -50,14 +50,60 @@ namespace Infrastructure
                 {
                     using (StreamReader reader = new StreamReader(response.GetResponseStream(), encode))
                     {
-                        return strMsg = reader.ReadToEnd();
+                        return reader.ReadToEnd();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex.Message;
             }
+        }
+
+        public static string Truncate(this string source, string head, string tail)
+        {
+            if (!string.IsNullOrWhiteSpace(source))
+            {
+                int startIndex = source.IndexOf(head) + head.Length;
+                int length = source.IndexOf(tail) - startIndex - 2;
+                return source.Substring(startIndex, length);
+            }
+            return source;
+        }
+
+        /// <summary>  
+        /// 获取字符中指定标签的值  
+        /// </summary>  
+        /// <param name="str">字符串</param>  
+        /// <param name="title">标签</param>  
+        /// <returns>值</returns>  
+        public static string GetHtmlContent(this string str, string title)
+        {
+            //获取<title>之间内容  
+            string tmpStr = string.Format("<{0}[^>]*?>(?<Text>[^<]*)</{1}>", title, title); 
+
+            Match TitleMatch = Regex.Match(str, tmpStr, RegexOptions.IgnoreCase);
+
+            string result = TitleMatch.Groups["Text"].Value;
+            return result;
+        }
+
+        /// <summary>  
+        /// 获取字符中指定标签的值  
+        /// </summary>  
+        /// <param name="str">字符串</param>  
+        /// <param name="title">标签</param>  
+        /// <param name="attrib">属性名</param>  
+        /// <returns>属性</returns>  
+        public static string GetHtmlContent(this string str, string title, string attrib)
+        {
+
+            string tmpStr = string.Format("<{0}[^>]*?{1}=(['\"\"]?)(?<url>[^'\"\"\\s>]+)\\1[^>]*>", title, attrib); //获取<title>之间内容  
+
+            Match TitleMatch = Regex.Match(str, tmpStr, RegexOptions.IgnoreCase);
+
+            string result = TitleMatch.Groups["url"].Value;
+            return result;
         }
     }
 }
