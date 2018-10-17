@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Infrastructure;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace DataProvider
 {
@@ -41,6 +42,12 @@ namespace DataProvider
         public virtual bool Contains(IDomainModel entity)
         {
             throw new NotImplementedException();
+        }
+
+        public virtual IEnumerable<TEntity> All<TEntity>()
+            where TEntity : IDomainModel, new()
+        {
+            return this.Connection.Query<TEntity>(string.Concat("select * from ", typeof(TEntity).Name));
         }
     }
 }

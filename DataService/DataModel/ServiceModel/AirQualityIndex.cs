@@ -16,5 +16,6 @@ namespace DataModel.ServiceModel
         public string Quality { get; set; }
         public string PM25 { get; set; }
         public string PM10 { get; set; }
+        public DateTime CreateTime { get; set; }
     }
 }

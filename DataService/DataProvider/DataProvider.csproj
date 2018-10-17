@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\AgriculturalProductsDao.cs" />
+    <Compile Include="Dao\AirQualityIndexDao.cs" />
     <Compile Include="Dao\Dao.cs" />
     <Compile Include="Dao\EarthquakeDao.cs" />
     <Compile Include="Interface\IDao.cs" />
