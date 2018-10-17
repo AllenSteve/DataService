@@ -78,7 +78,14 @@ namespace DataService
             var lst = this.ParseNodes(nodes).Select(o => o as AgriculturalProducts);
             foreach (var item in lst)
             {
-                this.dao.Add(item);
+                if (!this.dao.Contains(item))
+                {
+                    this.dao.Add(item);
+                }
+                else
+                {
+                    break;
+                }    
             }
         }
     }

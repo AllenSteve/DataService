@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceModel\AirQualityIndex.cs" />
     <Compile Include="ServiceModel\Earthquake.cs" />
     <Compile Include="ServiceModel\AgriculturalProducts.cs" />
     <Compile Include="ServiceModel\StockSZ.cs" />

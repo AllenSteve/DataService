@@ -46,12 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgriculturalProductsDao.cs" />
-    <Compile Include="Dao.cs" />
-    <Compile Include="EarthquakeDao.cs" />
-    <Compile Include="IDao.cs" />
+    <Compile Include="Dao\AgriculturalProductsDao.cs" />
+    <Compile Include="Dao\Dao.cs" />
+    <Compile Include="Dao\EarthquakeDao.cs" />
+    <Compile Include="Interface\IDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockDao.cs" />
+    <Compile Include="Dao\StockDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
