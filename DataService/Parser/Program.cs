@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EarthquakeParser
+namespace Parser
 {
     class Program
     {
         static void Main(string[] args)
         {
             new EarthquakeDataService().Run();
+            new AgriculturalProductsDataService().Run();
         }
     }
 }

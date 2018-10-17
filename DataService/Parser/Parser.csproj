@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE2A0230-2B85-4BB1-8883-22A15D81DADC}</ProjectGuid>
+    <ProjectGuid>{3A41753A-8198-40B5-803E-2DFF42F8242D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgriculturalProductsParser</RootNamespace>
-    <AssemblyName>AgriculturalProductsParser</AssemblyName>
+    <RootNamespace>Parser</RootNamespace>
+    <AssemblyName>Parser</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataService\DataService.csproj">
-      <Project>{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}</Project>
+      <Project>{5ab35f62-99ed-4168-b9d4-b6ad9347ba2f}</Project>
       <Name>DataService</Name>
     </ProjectReference>
   </ItemGroup>

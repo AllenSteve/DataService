@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthquakeParser", "EarthquakeParser\EarthquakeParser.csproj", "{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{2F9EB9E7-0498-4F13-9049-505088CAA453}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProvider", "DataProvider\DataProvider.csproj", "{76500AA3-2640-4F87-BAEC-AFE799B6208A}"
@@ -15,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{4C0498C2-966E-45EC-9643-0ED94ED348B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgriculturalProductsParser", "AgriculturalProductsParser\AgriculturalProductsParser.csproj", "{EE2A0230-2B85-4BB1-8883-22A15D81DADC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{3A41753A-8198-40B5-803E-2DFF42F8242D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +25,6 @@ Global
 		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB35F62-99ED-4168-B9D4-B6AD9347BA2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACCF46F4-C6D4-4E0F-875A-F49EFA1B764B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9EB9E7-0498-4F13-9049-505088CAA453}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +41,10 @@ Global
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C0498C2-966E-45EC-9643-0ED94ED348B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE2A0230-2B85-4BB1-8883-22A15D81DADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A41753A-8198-40B5-803E-2DFF42F8242D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A41753A-8198-40B5-803E-2DFF42F8242D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A41753A-8198-40B5-803E-2DFF42F8242D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A41753A-8198-40B5-803E-2DFF42F8242D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
