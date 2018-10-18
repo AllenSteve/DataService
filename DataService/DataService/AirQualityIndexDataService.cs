@@ -21,10 +21,10 @@ namespace DataService
 
         public IEnumerable<HtmlNode> GetCityList()
         {
-            return base.Parser(baseUrl, "//dd/a");
+            return base.Parse(baseUrl, "//dd/a");
         }
 
-        public BlockingCollection<AirQualityIndex> GetAQIList()
+        public IEnumerable<AirQualityIndex> GetAQIList()
         {
             BlockingCollection<AirQualityIndex> lst = new BlockingCollection<AirQualityIndex>();
             var cityList = this.GetCityList();
@@ -32,11 +32,14 @@ namespace DataService
             {
                 if (city != null)
                 {
-                    string createTime = base.Parser(string.Concat(this.baseUrl, city.Attributes[0].Value), "//div[@class='remark']").First().InnerText;
-                    var AQIs = this.ParserAQI(city);
-                    foreach (var AQI in AQIs)
+                    string createTime = base.Parse(string.Concat(this.baseUrl, city.Attributes[0].Value), "//div[@class='remark']").First().InnerText;
+                    var AQIs = this.ParseAQI(city);
+                    if (AQIs != null && AQIs.Any())
                     {
-                        lst.Add(this.Format(AQI, city.InnerText, DateTime.Parse(createTime.Replace("更新：", string.Empty))));
+                        foreach (var AQI in AQIs)
+                        {
+                            lst.Add(this.Format(AQI, city.InnerText, DateTime.Parse(createTime.Replace("更新：", string.Empty))));
+                        }
                     }
                 }
             });
@@ -44,11 +47,15 @@ namespace DataService
             return lst;
         }
 
-        public IEnumerable<HtmlNode> ParserAQI(HtmlNode node)
+        public IEnumerable<HtmlNode> ParseAQI(HtmlNode node)
         {
             string url = string.Concat(this.baseUrl, node.Attributes[0].Value);
-
-            return base.Parser(url, "//tr").Skip(1).TakeWhile(o => !o.InnerText.Contains("AQI指数：")).ToList();
+            var lst = base.Parse(url, "//tr");
+            if (lst != null && lst.Any())
+            {
+                return lst.Skip(1).TakeWhile(o => !o.InnerText.Contains("AQI指数：")).ToList();
+            }
+            return null;
         }
 
         public virtual AirQualityIndex Format(HtmlNode node, string cityName, DateTime createTime)
@@ -66,6 +73,15 @@ namespace DataService
                 return AQI;
             }
             return default(AirQualityIndex);
+        }
+
+        public override void Run()
+        {
+            var lst = this.GetAQIList();
+            foreach(var item in lst)
+            {
+                this.dao.Add(item);
+            }
         }
     }
 }

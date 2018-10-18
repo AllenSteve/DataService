@@ -15,7 +15,7 @@ namespace DataService
 
         public IDao dao { get; set; }
 
-        public virtual IEnumerable<HtmlNode> Parser(string url, string tag)
+        public virtual IEnumerable<HtmlNode> Parse(string url, string tag)
         {
             HtmlWeb client = new HtmlWeb();
             HtmlDocument doc = client.Load(url);
