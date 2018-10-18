@@ -21,7 +21,8 @@ namespace DataService
 
         public IEnumerable<HtmlNode> GetCityList()
         {
-            return base.Parse(baseUrl, "//dd/a");
+            var group = base.Parse(baseUrl, "//dd/a").GroupBy(o => o.InnerText);
+            return group.Select(o => o.FirstOrDefault()).ToList();
         }
 
         public IEnumerable<AirQualityIndex> GetAQIList()
@@ -78,7 +79,7 @@ namespace DataService
         public override void Run()
         {
             var lst = this.GetAQIList();
-            foreach(var item in lst)
+            foreach (var item in lst)
             {
                 this.dao.Add(item);
             }
