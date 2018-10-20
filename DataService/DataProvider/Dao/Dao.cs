@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using Infrastructure;
 using System.Data.SqlClient;
 using Dapper;
+using MySql.Data.MySqlClient;
 
 namespace DataProvider
 {
     public abstract class Dao : IDao
     {
+        private string database { get; set; }
         private string connStr { get; set; }
 
         protected IDbConnection Connection { get; set; }
@@ -31,7 +33,25 @@ namespace DataProvider
 
         public Dao()
         {
+            database = ConfigurationManager.AppSettings["Database"].ToUpper();
+            if(database.Equals("SqlServer".ToUpper()))
+            {
+                this.ConnectSqlServer();
+            }
+            else if(database.Equals("Mysql".ToUpper()))
+            {
+                this.ConnectMysql();
+            }
+        }
+
+        public void ConnectSqlServer()
+        {
             this.Connection = new SqlConnection(this.ConnStr);
+        }
+
+        public void ConnectMysql()
+        {
+            this.Connection = new MySqlConnection(this.ConnStr);
         }
 
         public virtual int Add(IDomainModel entity)

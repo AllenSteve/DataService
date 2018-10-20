@@ -20,7 +20,7 @@ namespace DataProvider
             var entity = source as AirQualityIndex;
             if (entity != null)
             {
-                return this.Connection.Execute("Insert into AirQualityIndex values (@City, @Monitor, @AQI, @Quality, @PM25, @PM10, @CreateTime)",
+                return this.Connection.Execute("Insert into AirQualityIndex (City, Monitor, AQI, Quality, PM25, PM10, CreateTime) values (@City, @Monitor, @AQI, @Quality, @PM25, @PM10, @CreateTime)",
                 new { City = entity.City, Monitor = entity.Monitor, AQI = entity.AQI, Quality = entity.Quality, PM25 = entity.PM25, PM10 = entity.PM10, CreateTime = entity.CreateTime });
             }
             return -1;
