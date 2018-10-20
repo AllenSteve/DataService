@@ -11,8 +11,9 @@ namespace Parser
     {
         static void Main(string[] args)
         {
-            new EarthquakeDataService().Run();
-            new AgriculturalProductsDataService().Run();
+            //new EarthquakeDataService().Run();
+            //new AgriculturalProductsDataService().Run();
+            new AirQualityIndexDataService().Run();
         }
     }
 }
