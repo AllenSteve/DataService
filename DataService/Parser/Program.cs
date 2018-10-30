@@ -13,7 +13,8 @@ namespace Parser
         {
             //new EarthquakeDataService().Run();
             //new AgriculturalProductsDataService().Run();
-            new AirQualityIndexDataService().Run();
+            //new AirQualityIndexDataService().Run();
+            new StockDataService().Run();
         }
     }
 }

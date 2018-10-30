@@ -35,7 +35,7 @@ namespace DataService
 
         public void Run()
         {
-            throw new NotImplementedException();
+            this.SaveStockSZ(this.GetStockList());
         }
 
         public void Save(HtmlNodeCollection nodes)
@@ -71,7 +71,7 @@ namespace DataService
             return int.Parse(pageCount);
         }
 
-        public void Save(IEnumerable<StockSZ> lst)
+        public void SaveStockSZ(IEnumerable<StockSZ> lst)
         {
             if (lst != null && lst.Any())
             {

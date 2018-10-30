@@ -41,7 +41,7 @@ namespace UnitTest.ServiceTest
             str = str.Truncate("a-param='", "'>查看");
             var lst = service.GetStockList();
             int count = lst.Count;
-            service.Save(lst);
+            service.SaveStockSZ(lst);
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace UnitTest.ServiceTest
         {
             var lst = service.GetStockList();
             int count = lst.Count;
-            service.Save(lst);
+            service.SaveStockSZ(lst);
         }
     }
 }
