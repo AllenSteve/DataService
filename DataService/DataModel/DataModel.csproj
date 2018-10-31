@@ -45,6 +45,8 @@
     <Compile Include="ServiceModel\AirQualityIndex.cs" />
     <Compile Include="ServiceModel\Earthquake.cs" />
     <Compile Include="ServiceModel\AgriculturalProducts.cs" />
+    <Compile Include="ServiceModel\StockSH.cs" />
+    <Compile Include="ServiceModel\StockSHList.cs" />
     <Compile Include="ServiceModel\StockSZ.cs" />
   </ItemGroup>
   <ItemGroup>

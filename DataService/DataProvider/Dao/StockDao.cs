@@ -17,12 +17,25 @@ namespace DataProvider
 
         public override int Add(IDomainModel source)
         {
-            var entity = source as StockSZ;
-            if (entity != null)
+            if (source is StockSZ)
             {
-                return this.Connection.Execute("Insert into StockSZ values (@zqdm, @gsjc, @gsqc, @sshymc, @http, @jqhq,@gsxq)",
-                new { zqdm = entity.zqdm, gsjc = entity.gsjc, gsqc = entity.gsqc, sshymc = entity.sshymc, http = entity.http, jqhq = entity.jqhq, gsxq = entity.gsxq});
+                var entity = source as StockSZ;
+                if (entity != null)
+                {
+                    return this.Connection.Execute("Insert into StockSZ values (@zqdm, @gsjc, @gsqc, @sshymc, @http, @jqhq,@gsxq)",
+                    new { zqdm = entity.zqdm, gsjc = entity.gsjc, gsqc = entity.gsqc, sshymc = entity.sshymc, http = entity.http, jqhq = entity.jqhq, gsxq = entity.gsxq });
+                }
             }
+            else if (source is StockSH)
+            {
+                var entity = source as StockSH;
+                if (entity != null)
+                {
+                    return this.Connection.Execute("Insert into StockSH values (@StockCode, @StockName, @Price,@Date)",
+                    new { StockCode = entity.StockCode, StockName = entity.StockName, Price = entity.Price, Date = entity.Date });
+                }
+            }
+
             return -1;
         }
     }

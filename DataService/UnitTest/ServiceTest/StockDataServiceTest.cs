@@ -25,13 +25,13 @@ namespace UnitTest.ServiceTest
         public void GetStocksByPageTest()
         {
             string szUrl = "http://www.szse.cn/api/report/ShowReport/data?SHOWTYPE=JSON&CATALOGID=1110x&TABKEY=tab1&PAGENO=3";
-            var lst = service.GetStocksByPage(szUrl);
+            var lst = service.GetSZStocksByPage(szUrl);
         }
 
         [TestMethod]
         public void GetStockListCountTest()
         {
-            int count = service.GetStockListCount();
+            int count = service.GetStockSZListCount();
         }
 
         [TestMethod]
@@ -39,17 +39,25 @@ namespace UnitTest.ServiceTest
         {
             string str = "<a href='javascript:void(0);' a-back=1  a-param='/ShowReport/data?SHOWTYPE=JSON&CATALOGID=1815_stock_child_nm&TABKEY=tab1&txtDm=002589'>查看</a>";
             str = str.Truncate("a-param='", "'>查看");
-            var lst = service.GetStockList();
+            var lst = service.GetStockSZList();
             int count = lst.Count;
-            service.SaveStockSZ(lst);
+            service.SaveStock(lst);
         }
 
         [TestMethod]
         public void SaveStockListTest()
         {
-            var lst = service.GetStockList();
+            var lst = service.GetStockSZList();
             int count = lst.Count;
-            service.SaveStockSZ(lst);
+            service.SaveStock(lst);
+        }
+
+        [TestMethod]
+        public void SaveStockSHListTest()
+        {
+            var lst = service.GetSHStocksByPage();
+            int count = lst.Count;
+            service.SaveStock(lst);
         }
     }
 }
