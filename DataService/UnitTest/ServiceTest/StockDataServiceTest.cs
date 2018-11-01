@@ -45,7 +45,7 @@ namespace UnitTest.ServiceTest
         }
 
         [TestMethod]
-        public void SaveStockListTest()
+        public void SaveStockSZListTest()
         {
             var lst = service.GetStockSZList();
             int count = lst.Count;
