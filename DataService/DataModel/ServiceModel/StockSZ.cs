@@ -46,11 +46,19 @@ namespace DataModel.ServiceModel
         /// </summary>
         public string gsxq { get; set; }
 
+        public DateTime date { get; set; }
+
         public StockSZ Format()
         {
             gsjc = gsjc.GetHtmlContent("u");
             gsxq = gsjc.GetHtmlContent("a", "href");
             jqhq = jqhq.Truncate("a-param='", "'>查看");
+            return this;
+        }
+
+        public StockSZ SetDate(string source)
+        {
+            this.date = DateTime.Parse(source);
             return this;
         }
     }

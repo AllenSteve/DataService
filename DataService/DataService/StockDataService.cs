@@ -47,8 +47,10 @@ namespace DataService
 
         public List<StockSZ> GetSZStocksByPage(string url)
         {
-            string content = WebUtil.Get(url, Encoding.UTF8).Truncate("\"data\":", "error");
-            return JsonHelper.DeserializeJsonToList<StockSZ>(content);
+            string response = WebUtil.Get(url, Encoding.UTF8);
+            string date = response.Truncate("\"subname\":", "tabkey").Trim('"');
+            string content = response.Truncate("\"data\":", "error");
+            return JsonHelper.DeserializeJsonToList<StockSZ>(content).Select(o => o.Format().SetDate(date)).ToList();
         }
 
         public List<StockSH> GetSHStocksByPage()
@@ -64,8 +66,7 @@ namespace DataService
             int pageCount = this.GetStockSZListCount();
             Parallel.For(0, pageCount, (i) =>
             {
-                var stocks = this.GetSZStocksByPage(string.Concat(this.baseUrl, i + 1))
-                                 .Select(o=>o.Format());
+                var stocks = this.GetSZStocksByPage(string.Concat(this.baseUrl, i + 1));
                 foreach(var stock in stocks)
                 {
                     lst.Add(stock);

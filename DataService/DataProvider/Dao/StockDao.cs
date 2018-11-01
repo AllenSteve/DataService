@@ -22,8 +22,8 @@ namespace DataProvider
                 var entity = source as StockSZ;
                 if (entity != null)
                 {
-                    return this.Connection.Execute("Insert into StockSZ values (@zqdm, @gsjc, @gsqc, @sshymc, @http, @jqhq,@gsxq)",
-                    new { zqdm = entity.zqdm, gsjc = entity.gsjc, gsqc = entity.gsqc, sshymc = entity.sshymc, http = entity.http, jqhq = entity.jqhq, gsxq = entity.gsxq });
+                    return this.Connection.Execute("Insert into StockSZ values (@zqdm, @gsjc, @gsqc, @sshymc, @http, @jqhq,@gsxq,@date)",
+                    new { zqdm = entity.zqdm, gsjc = entity.gsjc, gsqc = entity.gsqc, sshymc = entity.sshymc, http = entity.http, jqhq = entity.jqhq, gsxq = entity.gsxq, date = entity.date });
                 }
             }
             else if (source is StockSH)
