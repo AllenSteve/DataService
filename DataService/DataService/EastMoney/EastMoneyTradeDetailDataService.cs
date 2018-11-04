@@ -1,4 +1,5 @@
 ﻿using DataModel;
+using DataModel.ServiceModel;
 using DataProvider;
 using Infrastructure;
 using System;
@@ -19,24 +20,38 @@ namespace DataService
 
         public List<EastMoneyTradeDetail> GetTradeDetailByStock(IStock stock)
         {
-            string queryURL = string.Concat(this.baseUrl, stock.StockCode, GetExchangeType(stock.StockCode));
-            string content = WebUtil.Get(queryURL, Encoding.Default);
-            content = content.Truncate("\"value\":", ")")
-                             .Replace("[","[[")
-                             .Replace("\",\"", "\"],[\"")
-                             .ReplaceFirst("\"],[\"", "\",\"")
-                             +"]}";
-            var ret = JsonHelper.DeserializeJsonToObject<EastMoneyDetailReturnValue>(content);
-            if (ret != null && ret.Data != null && ret.Data.Any())
+            try
             {
-                return ret.Data.Select(o => new EastMoneyTradeDetail(o).SetStock(stock)).ToList();
+                string queryURL = string.Concat(this.baseUrl, stock.StockCode, GetExchangeType(stock.StockCode));
+                string content = WebUtil.Get(queryURL, Encoding.Default);
+                content = content.Truncate("\"value\":", ")")
+                                 .Replace("[", "[[")
+                                 .Replace("\",\"", "\"],[\"")
+                                 .ReplaceFirst("\"],[\"", "\",\"")
+                                 + "]}";
+                var ret = JsonHelper.DeserializeJsonToObject<EastMoneyDetailReturnValue>(content);
+                if (ret != null && ret.Data != null && ret.Data.Count > 1)
+                {
+                    return ret.Data.Select(o => new EastMoneyTradeDetail(o).SetStock(stock)).ToList();
+                }
+            }
+            catch(Exception ex)
+            {
             }
             return default(List<EastMoneyTradeDetail>);
         }
 
         public void SaveList(IEnumerable<EastMoneyTradeDetail> lst)
         {
-            this.dao.AddList<EastMoneyTradeDetail>(lst.ToList());
+            if (lst != null && lst.Any())
+            {
+                this.dao.AddList<EastMoneyTradeDetail>(lst.ToList());
+            }
+        }
+
+        public List<StockSH> GetStocksByDate(DateTime date)
+        {
+            return (this.dao as EastMoneyTradeDetailDao).GetStocksByDate(date);
         }
 
         private static int GetExchangeType(string stockCode)

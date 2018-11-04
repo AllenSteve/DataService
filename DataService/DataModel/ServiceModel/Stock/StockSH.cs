@@ -15,6 +15,8 @@ namespace DataModel.ServiceModel
         public string Price { get; set; }
         public DateTime Date { get; set; }
 
+        public StockSH() { }
+
         public StockSH(object source)
         {
             if (source != null)

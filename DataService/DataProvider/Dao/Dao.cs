@@ -65,7 +65,7 @@ namespace DataProvider
         }
 
         public virtual IEnumerable<TEntity> All<TEntity>()
-            where TEntity : IDomainModel, new()
+            where TEntity : IDomainModel
         {
             return this.Connection.Query<TEntity>(string.Concat("select * from ", typeof(TEntity).Name));
         }

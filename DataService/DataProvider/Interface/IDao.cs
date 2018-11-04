@@ -17,5 +17,7 @@ namespace DataProvider
         bool Contains(IDomainModel entity);
 
         void AddList<T>(List<T> list) where T : class;
+
+        IEnumerable<TEntity> All<TEntity>() where TEntity : IDomainModel;
     }
 }
