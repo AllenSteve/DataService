@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DataModel;
+using MySql.Data.MySqlClient;
 
 namespace DataProvider
 {
@@ -42,7 +43,33 @@ namespace DataProvider
         {
             if (list != null && list.Any() && !string.IsNullOrEmpty(tableName))
             {
-                Connection.Execute("Insert into `" + tableName+ "` (Exchange,StockCode,StockName,TradeType,TradePrice,TradeVolume,TradeAmount,TradeDate,TradeTime,TradeTimestamp) values (@Exchange,@StockCode,@StockName,@TradeType,@TradePrice,@TradeVolume,@TradeAmount,@TradeDate,@TradeTime,@TradeTimestamp)", list);
+                this.Connection.Execute("Insert into `" + tableName+ "` (Exchange,StockCode,StockName,TradeType,TradePrice,TradeVolume,TradeAmount,TradeDate,TradeTime,TradeTimestamp) values (@Exchange,@StockCode,@StockName,@TradeType,@TradePrice,@TradeVolume,@TradeAmount,@TradeDate,@TradeTime,@TradeTimestamp)", list);
+            }
+        }
+
+        public int BulkCopy(string tableName, string path, Encoding encode)
+        {
+            try
+            {
+                int ret = -1;
+                MySqlBulkLoader bulk = new MySqlBulkLoader(this.Connection as MySqlConnection)
+                {
+                    FieldTerminator = "\t",
+                    CharacterSet = encode.BodyName,
+                    FieldQuotationCharacter = '"',
+                    EscapeCharacter = '"',
+                    LineTerminator = "\r\n",
+                    FileName = path,
+                    //NumberOfLinesToSkip = 0,
+                    TableName = string.Format("`{0}`", tableName),
+                };
+                //bulk.Columns.AddRange(table.Columns.Cast<DataColumn>().Select(colum => colum.ColumnName).ToArray());
+                return ret = bulk.Load();
+            }
+            catch (MySqlException ex)
+            {
+                // if (tran != null) tran.Rollback();
+                throw ex;
             }
         }
     }

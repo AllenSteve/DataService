@@ -73,5 +73,11 @@ namespace DataService
         {
             this.mysqlProvider.AddListToTable(lst, tableName);
         }
+
+        public void BulkInsert(string filePath, Encoding encode)
+        {
+            string tableName = Path.GetFileNameWithoutExtension(filePath);
+            this.mysqlProvider.BulkCopy(tableName, filePath, encode);
+        }
     }
 }
