@@ -19,5 +19,23 @@ namespace DataModel
         public DateTime TradeDate { get; set; }
         public DateTime TradeTime { get; set; }
         public DateTime TradeTimestamp { get; set; }
+
+        public StockTradeDetail(string content)
+        {
+            if(!string.IsNullOrEmpty(content))
+            {
+                string[] arr = content.Split('\t');
+                Exchange = arr[0];
+                StockCode = arr[1];
+                StockName = arr[2];
+                TradeType = arr[3];
+                TradePrice = Decimal.Parse(arr[4]);
+                TradeVolume = Decimal.Parse(arr[5]);
+                TradeAmount = Decimal.Parse(arr[6]);
+                TradeDate = DateTime.Parse(arr[7]);
+                TradeTime = DateTime.Parse(arr[8]);
+                TradeTimestamp = DateTime.Parse(arr[9]);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DataProvider;
+﻿using DataModel;
+using DataProvider;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -46,6 +47,31 @@ namespace DataService
             {
                 mysqlProvider.CreateTable(name);
             }
+        }
+
+        public List<StockTradeDetail> GetList(string filePath)
+        {
+            if(!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+            {
+                List<StockTradeDetail> lst = new List<StockTradeDetail>();
+                using (var fs = File.Open(filePath, FileMode.Open))
+                {
+                    using (var stream = new StreamReader(fs, System.Text.Encoding.Default))
+                    {
+                        while (!stream.EndOfStream)
+                        {
+                            lst.Add(new StockTradeDetail(stream.ReadLine()));
+                        }
+                        return lst;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void Save(List<StockTradeDetail> lst, string tableName)
+        {
+            this.mysqlProvider.AddListToTable(lst, tableName);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using DataModel;
 
 namespace DataProvider
 {
@@ -35,6 +36,14 @@ namespace DataProvider
         public void CreateTable(string tableName)
         {
             this.Connection.Execute(string.Format(TableDefinition,tableName));
+        }
+
+        public void AddListToTable(List<StockTradeDetail> list, string tableName)
+        {
+            if (list != null && list.Any() && !string.IsNullOrEmpty(tableName))
+            {
+                Connection.Execute("Insert into `" + tableName+ "` (Exchange,StockCode,StockName,TradeType,TradePrice,TradeVolume,TradeAmount,TradeDate,TradeTime,TradeTimestamp) values (@Exchange,@StockCode,@StockName,@TradeType,@TradePrice,@TradeVolume,@TradeAmount,@TradeDate,@TradeTime,@TradeTimestamp)", list);
+            }
         }
     }
 }
