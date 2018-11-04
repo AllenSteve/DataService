@@ -40,6 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,13 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirQualityIndexDataService.cs" />
-    <Compile Include="DataService.cs" />
-    <Compile Include="EarthquakeDataService.cs" />
-    <Compile Include="AgriculturalProductsDataService.cs" />
-    <Compile Include="IDataService.cs" />
+    <Compile Include="AQI\AirQualityIndexDataService.cs" />
+    <Compile Include="Base\DataService.cs" />
+    <Compile Include="Earthquake\EarthquakeDataService.cs" />
+    <Compile Include="AgriculturalProduct\AgriculturalProductsDataService.cs" />
+    <Compile Include="Base\IDataService.cs" />
+    <Compile Include="EastMoney\EastMoneyTradeDetailDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockDataService.cs" />
+    <Compile Include="Stock\StockDataService.cs" />
+    <Compile Include="Stock\StockTradeDetailResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

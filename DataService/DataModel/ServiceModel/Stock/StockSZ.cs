@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataModel.ServiceModel
 {
-    public class StockSZ : IDomainModel
+    public class StockSZ : IStock
     {
         public long Id { get; set; }
 
@@ -46,7 +46,20 @@ namespace DataModel.ServiceModel
         /// </summary>
         public string gsxq { get; set; }
 
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
+
+        public string StockCode
+        {
+            get
+            {
+                return zqdm;
+            }
+
+            set
+            {
+                zqdm = value;
+            }
+        }
 
         public StockSZ Format()
         {
@@ -58,7 +71,7 @@ namespace DataModel.ServiceModel
 
         public StockSZ SetDate(string source)
         {
-            this.date = DateTime.Parse(source);
+            this.Date = DateTime.Parse(source);
             return this;
         }
     }

@@ -36,22 +36,22 @@ namespace DataProvider
             database = ConfigurationManager.AppSettings["Database"].ToUpper();
             if(database.Equals("SqlServer".ToUpper()))
             {
-                this.ConnectSqlServer();
+                this.ConnectSqlServer(this.ConnStr);
             }
             else if(database.Equals("Mysql".ToUpper()))
             {
-                this.ConnectMysql();
+                this.ConnectMysql(this.ConnStr);
             }
         }
 
-        public void ConnectSqlServer()
+        public void ConnectSqlServer(string conn)
         {
-            this.Connection = new SqlConnection(this.ConnStr);
+            this.Connection = new SqlConnection(conn);
         }
 
-        public void ConnectMysql()
+        public void ConnectMysql(string conn)
         {
-            this.Connection = new MySqlConnection(this.ConnStr);
+            this.Connection = new MySqlConnection(conn);
         }
 
         public virtual int Add(IDomainModel entity)
@@ -65,9 +65,14 @@ namespace DataProvider
         }
 
         public virtual IEnumerable<TEntity> All<TEntity>()
-            where TEntity : IDomainModel, new()
+            where TEntity : IDomainModel
         {
             return this.Connection.Query<TEntity>(string.Concat("select * from ", typeof(TEntity).Name));
+        }
+
+        public virtual void AddList<T>(List<T> list) where T : class
+        {
+            throw new NotImplementedException();
         }
     }
 }

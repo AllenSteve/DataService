@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace DataModel.ServiceModel
 {
-    public class StockSH : IDomainModel
+    public class StockSH : IStock
     {
         public long Id { get; set; }
         public string StockCode { get; set; }
         public string StockName { get; set; }
         public string Price { get; set; }
         public DateTime Date { get; set; }
+
+        public StockSH() { }
 
         public StockSH(object source)
         {
@@ -25,7 +27,7 @@ namespace DataModel.ServiceModel
                                      .Replace("[", string.Empty)
                                      .Replace("]", string.Empty)
                                      .Split(',')
-                                     .Select(o=>o.Trim())
+                                     .Select(o => o.Trim())
                                      .ToArray();
                 StockCode = arr[0];
                 StockName = arr[1];

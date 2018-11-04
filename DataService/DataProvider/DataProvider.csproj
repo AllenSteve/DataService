@@ -71,6 +71,8 @@
     <Compile Include="Dao\AirQualityIndexDao.cs" />
     <Compile Include="Dao\Dao.cs" />
     <Compile Include="Dao\EarthquakeDao.cs" />
+    <Compile Include="Dao\MysqlProvider.cs" />
+    <Compile Include="Dao\EastMoneyTradeDetailDao.cs" />
     <Compile Include="Interface\IDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dao\StockDao.cs" />
