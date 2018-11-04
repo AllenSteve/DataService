@@ -45,10 +45,13 @@
     <Compile Include="ServiceModel\AirQualityIndex.cs" />
     <Compile Include="ServiceModel\Earthquake.cs" />
     <Compile Include="ServiceModel\AgriculturalProducts.cs" />
+    <Compile Include="ServiceModel\EastMoney\EastMoneyTradeDetailReturn.cs" />
+    <Compile Include="ServiceModel\EastMoney\EastMoneyTradeDetail.cs" />
+    <Compile Include="ServiceModel\Stock\IStock.cs" />
     <Compile Include="ServiceModel\Stock\StockSH.cs" />
     <Compile Include="ServiceModel\Stock\StockSHList.cs" />
     <Compile Include="ServiceModel\Stock\StockSZ.cs" />
-    <Compile Include="ServiceModel\Stock\StockTradeDetail.cs" />
+    <Compile Include="ServiceModel\ifeng\StockTradeDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">

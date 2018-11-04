@@ -69,5 +69,10 @@ namespace DataProvider
         {
             return this.Connection.Query<TEntity>(string.Concat("select * from ", typeof(TEntity).Name));
         }
+
+        public virtual void AddList<T>(List<T> list) where T : class
+        {
+            throw new NotImplementedException();
+        }
     }
 }

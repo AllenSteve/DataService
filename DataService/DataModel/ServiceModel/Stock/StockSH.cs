@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataModel.ServiceModel
 {
-    public class StockSH : IDomainModel
+    public class StockSH : IStock
     {
         public long Id { get; set; }
         public string StockCode { get; set; }
@@ -25,7 +25,7 @@ namespace DataModel.ServiceModel
                                      .Replace("[", string.Empty)
                                      .Replace("]", string.Empty)
                                      .Split(',')
-                                     .Select(o=>o.Trim())
+                                     .Select(o => o.Trim())
                                      .ToArray();
                 StockCode = arr[0];
                 StockName = arr[1];

@@ -71,6 +71,15 @@ namespace Infrastructure
             return source;
         }
 
+        public static string ReplaceFirst(this string source, string src, string dest)
+        {
+            if (!string.IsNullOrWhiteSpace(source) && source.IndexOf(src) > -1)
+            {
+                return string.Concat(source.Substring(0, source.IndexOf(src)), dest, source.Substring(source.IndexOf(src) + src.Length));
+            }
+            return source;
+        }
+
         /// <summary>  
         /// 获取字符中指定标签的值  
         /// </summary>  
