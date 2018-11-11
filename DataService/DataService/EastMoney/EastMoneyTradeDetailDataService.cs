@@ -45,7 +45,7 @@ namespace DataService
         {
             if (lst != null && lst.Any())
             {
-                this.dao.AddList<EastMoneyTradeDetail>(lst.ToList());
+                (this.dao as EastMoneyTradeDetailDao).AddLst<EastMoneyTradeDetail>(lst.ToList());
             }
         }
 

@@ -70,9 +70,49 @@ namespace DataProvider
             return this.Connection.Query<TEntity>(string.Concat("select * from ", typeof(TEntity).Name));
         }
 
-        public virtual void AddList<T>(List<T> list) where T : class
+        public virtual int Add<TEntity>(TEntity entity)
+            where TEntity : class
         {
-            throw new NotImplementedException();
+            int ret = -1;
+            if (entity != null)
+            {
+                string insertSQL = SQLHelper.CreateInsertSQL<TEntity>();
+                ret = this.Connection.Execute(insertSQL, entity);
+            }
+
+            return ret;
+        }
+
+        public virtual void AddList<TEntity>(IEnumerable<TEntity> lst) where TEntity : class
+        {
+            if (lst != null && lst.Any())
+            {
+                string insertSQL = SQLHelper.CreateInsertSQL<TEntity>();
+                this.Connection.Execute(insertSQL, lst);
+            }
+        }
+
+        public virtual void BulkCopy(DataTable dt, string tableName)
+        {
+            string column;
+            try
+            {
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(this.ConnStr))
+                {
+                    bulkCopy.BulkCopyTimeout = 10000;
+                    bulkCopy.DestinationTableName = tableName;
+                    foreach (DataColumn item in dt.Columns)
+                    {
+                        column = item.ColumnName;
+                        bulkCopy.ColumnMappings.Add(item.ColumnName, item.ColumnName);
+                    }
+                    bulkCopy.WriteToServer(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace DataProvider
         {
         }
 
-        public override void AddList<EastMoneyTradeDetail>(List<EastMoneyTradeDetail> list)
+        public void AddLst<EastMoneyTradeDetail>(List<EastMoneyTradeDetail> list)
         {
             if (list != null && list.Any() && typeof(EastMoneyTradeDetail) != null)
             {
