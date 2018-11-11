@@ -14,7 +14,8 @@ namespace Parser
             //new EarthquakeDataService().Run();
             //new AgriculturalProductsDataService().Run();
             //new AirQualityIndexDataService().Run();
-            new StockDataService().Run();
+            //new StockDataService().Run();
+            new EastMoneyTradeDetailDataService().Run();
         }
     }
 }

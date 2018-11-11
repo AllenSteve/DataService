@@ -49,6 +49,19 @@ namespace DataService
             }
         }
 
+        public override void Run()
+        {
+            if (DateTime.Now.DayOfWeek != DayOfWeek.Saturday && DateTime.Now.DayOfWeek != DayOfWeek.Sunday)
+            {
+                var stocks = this.GetStocksByDate(DateTime.Now);
+                foreach (var stock in stocks)
+                {
+                    var lst = this.GetTradeDetailByStock(stock);
+                    this.SaveList(lst);
+                }
+            }
+        }
+
         public List<StockSH> GetStocksByDate(DateTime date)
         {
             return (this.dao as EastMoneyTradeDetailDao).GetStocksByDate(date);
