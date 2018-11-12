@@ -57,6 +57,7 @@
     <Compile Include="Base\IDataService.cs" />
     <Compile Include="EastMoney\EastMoneyTradeDetailDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sina\Stock_SinaDataService.cs" />
     <Compile Include="Stock\StockDataService.cs" />
     <Compile Include="Stock\StockTradeDetailResolver.cs" />
   </ItemGroup>

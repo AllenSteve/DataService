@@ -76,6 +76,7 @@
     <Compile Include="ServiceTest\AirQualityIndexDataServiceTest.cs" />
     <Compile Include="ServiceTest\StockTradeDetailResolverTest.cs" />
     <Compile Include="ServiceTest\EastMoneyTradeDetailDataServiceTest.cs" />
+    <Compile Include="ServiceTest\Stock_SinaDataServiceTest.cs" />
     <Compile Include="UtilTest\WebUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>

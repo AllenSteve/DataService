@@ -57,7 +57,7 @@ namespace UnitTest.ServiceTest
         {
             var lst = service.GetSHStocksByPage();
             int count = lst.Count;
-            service.SaveStock(lst);
+            service.SaveStockList(lst);
         }
     }
 }

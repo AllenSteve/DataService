@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -14,13 +16,13 @@ namespace Infrastructure
         {
             Type type = typeof(TEntity);
             PropertyInfo[] properties = type.GetProperties();
-            string tableName = type.GetCustomAttribute<System.ComponentModel.DescriptionAttribute>().Description;
+            string tableName = type.GetCustomAttribute<DescriptionAttribute>().Description;
             StringBuilder sqlBuffer = new StringBuilder();
             sqlBuffer.Append(" Insert into ");
             sqlBuffer.Append(tableName);
             sqlBuffer.Append(" values ");
             sqlBuffer.Append(" (@");
-            sqlBuffer.Append(string.Join(",@", properties.Select(o => o.Name)));
+            sqlBuffer.Append(string.Join(",@", properties.Where(o => o.GetCustomAttribute<KeyAttribute>() == null).Select(o => o.Name)));
             sqlBuffer.Append(" ) ");
             return sqlBuffer.ToString();
         }

@@ -1,14 +1,18 @@
 ﻿using Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataModel.ServiceModel
 {
+    [Description("StockSH")]
     public class StockSH : IStock
     {
+        [Key]
         public long Id { get; set; }
         public string StockCode { get; set; }
         public string StockName { get; set; }

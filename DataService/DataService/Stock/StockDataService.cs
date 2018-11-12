@@ -92,5 +92,14 @@ namespace DataService
             }
         }
 
+        public void SaveStockList<TEntity>(IEnumerable<TEntity> lst)
+            where TEntity : class
+        {
+            if (lst != null && lst.Any())
+            {
+                this.dao.AddList(lst);
+            }
+        }
+
     }
 }
